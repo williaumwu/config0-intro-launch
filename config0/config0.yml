@@ -1,0 +1,18 @@
+global:
+  platform: williaumwu:::platform-config0-dev
+  metadata:   
+    labels:
+      infrastructure:
+        product: vpc
+        area: network
+infrastructure:
+  vpc:
+    platform:
+      stack_ref: aws_vpc_simple 
+    arguments:
+      vpc_name: config0-intro-vpc-simple
+      eks_cluster: config0-intro-eks
+      publish_to_saas: true
+    metadata:
+      labels:
+        - infrastructure
