@@ -1,7 +1,5 @@
 global:
   platform: williaumwu:::platform-config0-dev
-  arguments: 
-    aws_default_region: eu-west-1
   metadata:   
     labels:
        infrastructure:
