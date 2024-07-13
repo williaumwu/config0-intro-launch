@@ -11,7 +11,6 @@ infrastructure:
     platform:
       stack_ref: aws_rds 
     arguments:
-      aws_default_region: eu-west-1
       engine: MySQL
       engine_version: 5.7.44
       vpc_name: selector:::network_vars::vpc_name  # selector definition injected by platform configs
