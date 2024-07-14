@@ -1,5 +1,5 @@
 global:
-  platform: williaumwu:::platform-config0-dev
+  platform: williaumwu:::platform-config0-intro
   metadata:   
     labels:
       infrastructure:
