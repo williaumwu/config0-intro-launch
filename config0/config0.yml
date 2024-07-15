@@ -1,34 +1,24 @@
 global:
-  platform: williaumwu:::platform-config0-intro
+  platform: williaumwu:::platform-config0-dev
   metadata:   
     labels:
-       infrastructure:
-         provider: aws
-         product: eks
+      infrastructure:
+        provider: aws
+        product: nat-instance
+        area: networking
 infrastructure:
-  eks:
+  natgw:
     platform:
-      stack_ref: aws_eks 
+      stack_ref: aws_nat_inst_vpc
     arguments:
-      # vpc with NAT, private_subet_ids is more secure
-      publish_to_saas: true
-      vpc_name: selector:::network_vars::vpc_name  # selector definition injected by platform configs
-      vpc_id: selector:::network_vars::vpc_id  # selector definition injected by platform configs
-      eks_cluster: config0-intro-eks
-      eks_cluster_version: 1.29
-      eks_cluster_subnet_ids: selector:::network_vars::public_subnet_ids:csv  # selector definition injected by platform configs
-      eks_cluster_sg_id: selector:::network_vars::bastion_sg_id  # selector definition injected by platform configs
-      eks_node_group_subnet_ids: selector:::network_vars::private_subnet_ids:csv  # selector definition injected by platform configs
-      eks_node_role_arn: selector:::eks_info::node_role_arn  # selector definition injected by platform configs
-      eks_node_capacity_type: ON_DEMAND
-      eks_node_ami_type: AL2_x86_64
-      eks_node_max_capacity: 1
-      eks_node_min_capacity: 1
-      eks_node_desired_capacity: 1
-      eks_node_disksize: 25
-      eks_node_instance_types: 
-        - t3.medium
-        - t3.large
+      aws_default_region: eu-west-1
+      service_name: config0-intro
+      instance_types: t3.nano,t3a.nano
+      cidr_ingress_accept: 0.0.0.0/0
+      use_spot_instance: true
+      vpc_id: selector:::network_vars::vpc_id
+      public_subnet_ids: selector:::network_vars::public_subnet_ids
+      private_route_table_id: selector:::network_vars::private_route_table_id
     metadata:
       labels:
         - infrastructure
