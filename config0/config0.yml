@@ -16,5 +16,3 @@ infrastructure:
     metadata:
       labels:
         - infrastructure
-
-
