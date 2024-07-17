@@ -25,10 +25,15 @@ infrastructure:
       rds_name: config0-rds
       instance_class: db.t3.micro
       engine: MySQL
+      allocated_storage: 15
       engine_version: 5.7.44
       vpc_name: selector:::network_vars::vpc_name
       sg_id: selector:::network_vars::db_sg_id
       subnet_ids: selector:::network_vars::private_subnet_ids
+      publish_to_saas: true
+      cloud_tags_hash:
+        environment: dev
+        purpose: config0
     spec:
       serialization:
         to_base64:
