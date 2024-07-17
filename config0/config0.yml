@@ -3,20 +3,32 @@ global:
     aws_default_region: eu-west-1
   metadata:   
     labels:
-       general: 
-         environment: dev
-         purpose: config0
-       infrastructure:
-         cloud: aws
-         product: vpc
-         area: network
+      general: 
+        environment: dev
+        purpose: config0
+      infrastructure:
+        cloud: aws
+        product: nat-instance
+        area: networking
+    matchSelectors:
+      network_vars:
+        labels:
+          environment: dev
+          purpose: config0
+          area: network
+          region: eu-west-1
+          cloud: aws
 infrastructure:
-  vpc:
-    stack_name: config0-publish:::aws_vpc_simple
+  natgw:
+    stack_name: config0-publish:::aws_nat_inst_vpc
     arguments:
-      vpc_name: config0-vpc-simple
-      eks_cluster: config0-eks
-      publish_to_saas: true
+      service_name: config0
+      vpc_id: selector:::network_vars::vpc_id
+      public_subnet_ids: selector:::network_vars::public_subnet_ids
+      instance_types: t3.nano,t3a.nano
+      cidr_ingress_accept: 0.0.0.0/0
+      private_route_table_id: selector:::network_vars::private_route_table_id
+      use_spot_instance: true
       cloud_tags_hash:
         environment: dev
         purpose: config0
@@ -29,3 +41,5 @@ infrastructure:
       labels:
         - general
         - infrastructure
+      matchSelectors:
+        - network_vars
