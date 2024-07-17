@@ -5,7 +5,7 @@ global:
     labels:
        general: 
          environment: dev
-         purpose: eval-config0
+         purpose: config0
        infrastructure:
          cloud: aws
          product: vpc
@@ -14,12 +14,12 @@ infrastructure:
   vpc:
     stack_name: config0-publish:::aws_vpc_simple
     arguments:
-      vpc_name: eval-config0-vpc-simple
-      eks_cluster: eval-config0-eks
+      vpc_name: config0-vpc
+      eks_cluster: config0-eks
       publish_to_saas: true
       cloud_tags_hash:
         environment: dev
-        purpose: eval-config0
+        purpose: config0
     spec:
       serialization:
         to_base64:
