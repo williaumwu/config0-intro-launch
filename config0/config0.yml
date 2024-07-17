@@ -1,23 +1,42 @@
 global:
-  platform: williaumwu:::platform-config0-dev
+  arguments: 
+    aws_default_region: eu-west-1
   metadata:   
     labels:
+      general: 
+        environment: dev
+        purpose: config0
       infrastructure:
-        provider: aws
+        cloud: aws
         product: rds
         area: database
+    matchSelectors:
+      network_vars:
+        labels:
+          environment: dev
+          purpose: config0
+          area: network
+          region: eu-west-1
+          cloud: aws
 infrastructure:
   rds:
-    platform:
-      stack_ref: aws_rds 
+    stack_name: config0-publish:::aws_rds
     arguments:
+      rds_name: config0-rds
+      instance_class: db.t3.micro
       engine: MySQL
       engine_version: 5.7.44
-      vpc_name: selector:::network_vars::vpc_name  # selector definition injected by platform configs
-      sg_id: selector:::network_vars::db_sg_id  # selector definition injected by platform configs
-      subnet_ids: selector:::network_vars::private_subnet_ids  # selector definition injected by platform configs
-      rds_name: config0-intro-rds
-      instance_class: db.t3.micro
+      vpc_name: selector:::network_vars::vpc_name
+      sg_id: selector:::network_vars::db_sg_id
+      subnet_ids: selector:::network_vars::private_subnet_ids
+    spec:
+      serialization:
+        to_base64:
+          arguments:
+            - cloud_tags_hash
     metadata:
       labels:
+        - general
         - infrastructure
+      matchSelectors:
+        - network_vars
