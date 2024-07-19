@@ -6,7 +6,6 @@ global:
        general: 
          environment: dev
          purpose: config0
-       infrastructure:
          cloud: aws
          product: vpc
          area: network
@@ -28,5 +27,3 @@ infrastructure:
     metadata:
       labels:
         - general
-        - infrastructure
-
