@@ -33,9 +33,9 @@ infrastructure:
     stack_name: config0-publish:::aws_eks
     arguments:
       # vpc with NAT, private_subet_ids is more secure
-      publish_to_saas: true
       vpc_name: selector:::network_vars::vpc_name  # selector definition injected by platform configs
       vpc_id: selector:::network_vars::vpc_id  # selector definition injected by platform configs
+      publish_to_saas: true
       eks_cluster: config0-intro-eks
       eks_cluster_version: 1.29
       eks_cluster_subnet_ids: selector:::network_vars::public_subnet_ids:csv  # selector definition injected by platform configs
