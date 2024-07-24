@@ -1,8 +1,4 @@
 global:
-   labels:
-     general: 
-       environment: dev
-       purpose: config0
    matchSelectors:
      aws_base:
        match_keys:
@@ -11,6 +7,10 @@ global:
          environment: dev
          purpose: config0
    metadata:   
+     labels:
+       general: 
+         environment: dev
+         purpose: config0
      matchSelectors:
         network_vars:
           labels:
