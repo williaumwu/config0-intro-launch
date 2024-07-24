@@ -12,11 +12,6 @@ global:
          environment: dev
          purpose: config0
      matchSelectors:
-        network_vars:
-          labels:
-            environment: dev
-            purpose: config0
-            region: eu-west-1
         vpc_info:
           match_base: aws_base
           match_params:
@@ -80,9 +75,9 @@ custom:
      stack_name: williaumwu:::aws_vpc_varset_nat_inst
      arguments: 
        env_name: test-101
-       vpc_id: selector:::network_vars::vpc_id
-       public_subnet_ids: selector:::network_vars::public_subnet_ids
-       private_route_table_id: selector:::network_vars::private_route_table_id
+       vpc_id: selector:::vpc_info::vpc_id
+       public_subnet_ids: selector:::public_subnet_info::subnet_id:csv
+       private_route_table_id: selector:::private_route_table::route_table_id
        labels_hash:
          region: eu-west-1
          environment: dev
@@ -112,7 +107,6 @@ custom:
        labels:
          - general
        matchSelectors:
-         - network_vars
          - vpc_info
          - public_route_table
          - private_route_table
