@@ -74,7 +74,7 @@ custom:
    network:
      stack_name: williaumwu:::aws_vpc_varset_nat_inst
      arguments: 
-       env_name: test-102
+       env_name: config0-dev
        vpc_id: selector:::vpc_info::vpc_id
        public_subnet_ids: selector:::public_subnet_info::subnet_id:csv
        private_route_table_id: selector:::private_route_table::route_table_id
