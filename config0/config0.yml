@@ -70,9 +70,23 @@ global:
             name: api
           match_params:
             resource_type: security_group
+        network_vars:
+          labels:
+            environment: dev
+            purpose: config0
+        eks_info:
+          keys:
+            provider: aws
+            region: eu-west-1
+            aws_default_region: eu-west-1
+          params:
+            resource_type: eks
+          labels:
+            environment: dev
+            purpose: config0
 custom:
    network:
-     stack_name: williaumwu:::aws_vpc_varset_nat_inst
+     stack_name: williaumwu:::aws_network
      arguments: 
        env_name: config0-layering
        vpc_id: selector:::vpc_info::vpc_id
@@ -95,6 +109,10 @@ custom:
          bastion_sg_id: selector:::sg_bastion_info::sg_id
          web_sg_id: selector:::sg_web_info::sg_id
          api_sg_id: selector:::sg_api_info::sg_id
+       eks_cluster_subnet_ids: selector:::network_vars::public_subnet_ids:csv  # selector definition injected by platform configs
+       eks_cluster_sg_id: selector:::network_vars::bastion_sg_id  # selector definition injected by platform configs
+       eks_node_group_subnet_ids: selector:::network_vars::private_subnet_ids:csv  # selector definition injected by platform configs
+       eks_node_role_arn: selector:::eks_info::node_role_arn  # selector definition injected by platform configs
      spec:
        serialization:
          to_base64:
