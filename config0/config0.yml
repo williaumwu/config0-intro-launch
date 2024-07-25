@@ -6,9 +6,6 @@ global:
        general: 
          environment: dev
          purpose: config0
-         cloud: aws
-         product: vpc
-         area: network
 infrastructure:
   vpc:
     stack_name: config0-publish:::aws_vpc_simple
