@@ -15,9 +15,6 @@ global:
         labels:
           environment: dev
           purpose: config0
-          area: network
-          region: eu-west-1
-          cloud: aws
 infrastructure:
   rds:
     stack_name: config0-publish:::aws_rds
