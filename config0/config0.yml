@@ -14,9 +14,6 @@ global:
          labels:
            environment: dev
            purpose: config0
-           area: network
-           region: eu-west-1
-           cloud: aws
        eks_info:
          keys:
            provider: aws
