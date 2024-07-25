@@ -6,7 +6,6 @@ global:
        match_labels:
          environment: dev
          purpose: config0
-         area: network
    metadata:   
      matchSelectors:
         vpc_info:
