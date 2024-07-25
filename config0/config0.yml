@@ -6,9 +6,6 @@ global:
        general: 
          environment: dev
          purpose: config0
-       infrastructure:
-         cloud: aws
-         product: eks
     matchSelectors:
        network_vars:
          labels:
@@ -24,7 +21,6 @@ global:
          labels:
            environment: dev
            purpose: config0
-           cloud: aws
 infrastructure:
   eks:
     stack_name: config0-publish:::aws_eks
@@ -59,7 +55,6 @@ infrastructure:
     metadata:
       labels:
         - general
-        - infrastructure
       matchSelectors:
         - network_vars
         - eks_info
