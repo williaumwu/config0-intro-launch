@@ -6,10 +6,6 @@ global:
       general: 
         environment: dev
         purpose: config0
-      infrastructure:
-        cloud: aws
-        product: rds
-        area: database
     matchSelectors:
       network_vars:
         labels:
@@ -39,6 +35,5 @@ infrastructure:
     metadata:
       labels:
         - general
-        - infrastructure
       matchSelectors:
         - network_vars
