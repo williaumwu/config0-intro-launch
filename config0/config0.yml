@@ -133,3 +133,4 @@ custom:
          - sg_web_info
          - sg_api_info
          - network_vars
+         - eks_info
