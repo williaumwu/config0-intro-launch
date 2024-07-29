@@ -72,9 +72,9 @@ global:
             resource_type: security_group
 custom:
    network:
-     stack_name: williaumwu:::aws_network
+     stack_name: williaumwu:::network
      arguments: 
-       env_name: config0-layering
+       env_name: config0-network
        vpc_id: selector:::vpc_info::vpc_id
        public_subnet_ids: selector:::public_subnet_info::subnet_id:csv
        private_route_table_id: selector:::private_route_table::route_table_id
@@ -114,3 +114,4 @@ custom:
          - sg_database_info
          - sg_web_info
          - sg_api_info
+
