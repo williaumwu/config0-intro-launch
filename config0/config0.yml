@@ -74,7 +74,7 @@ custom:
    network:
      stack_name: williaumwu:::network
      arguments: 
-       env_name: config0-network
+       env_name: config0-network-test
        vpc_id: selector:::vpc_info::vpc_id
        public_subnet_ids: selector:::public_subnet_info::subnet_id:csv
        private_route_table_id: selector:::private_route_table::route_table_id
