@@ -12,20 +12,11 @@ global:
          environment: dev
          purpose: config0
      matchSelectors:
-        network_vars:
-          labels:
-            environment: dev
-            purpose: config0
-        eks_info:
-          keys:
-            provider: aws
-            region: eu-west-1
-            aws_default_region: eu-west-1
-          params:
-            resource_type: eks
-          labels:
-            environment: dev
-            purpose: config0
+
+
+
+
+
 custom:
    mongodb-eks:
      stack_name: williaumwu:::mongodb_eks
