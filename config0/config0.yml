@@ -136,8 +136,8 @@ custom:
          to_base64:
            arguments:
              - cloud_tags_hash
-             - vars_set_labels_hash
-             - vars_set_arguments_hash
+             - netvars_set_labels_hash
+             - netvars_set_arguments_hash
      metadata:
        labels:
          - general
