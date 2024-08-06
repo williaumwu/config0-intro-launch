@@ -85,7 +85,7 @@ global:
             environment: dev
             purpose: config0
 custom:
-   env_3tier:
+   env_nosql:
      stack_name: williaumwu:::env_nosql
      arguments: 
        env_name: nosql
