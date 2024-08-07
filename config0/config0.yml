@@ -91,6 +91,7 @@ custom:
        env_name: env_sql
        vpc_id: selector:::network_vars::vpc_id
        vpc_name: selector:::vpc_info::vpc_name 
+       private_route_table_id: selector:::private_route_table::route_table_id
        public_subnet_ids: selector:::network_vars::public_subnet_ids:csv
        private_subnet_ids: selector:::network_vars::private_subnet_ids:csv
        db_sg_id: selector:::network_vars::db_sg_id
