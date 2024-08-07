@@ -131,5 +131,14 @@ custom:
        labels:
          - general
        matchSelectors:
+         - vpc_info
+         - public_route_table
+         - private_route_table
+         - public_subnet_info
+         - private_subnet_info
+         - sg_bastion_info
+         - sg_database_info
+         - sg_web_info
+         - sg_api_info
          - network_vars
          - eks_info
