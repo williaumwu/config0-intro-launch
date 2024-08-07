@@ -88,7 +88,7 @@ custom:
    env_sql:
      stack_name: williaumwu:::env_sql
      arguments: 
-       env_name: env_sql
+       env_name: env-sql
        vpc_id: selector:::network_vars::vpc_id
        vpc_name: selector:::vpc_info::vpc_name 
        private_route_table_id: selector:::private_route_table::route_table_id
